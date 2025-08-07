@@ -30,13 +30,13 @@ public final class VillagerFix extends JavaPlugin {
 
         if (pluginManager.isPluginEnabled("GriefPrevention")) {
             hooks++;
-            pluginManager.registerEvents(new GriefPreventionListener(logger), this);
+            pluginManager.registerEvents(new GriefPreventionListener(), this);
             logger.info("Registered GriefPrevention event listeners");
         }
 
         if (pluginManager.isPluginEnabled("WorldGuard")) {
             hooks++;
-            pluginManager.registerEvents(new WorldGuardListener(logger), this);
+            pluginManager.registerEvents(new WorldGuardListener(), this);
             logger.info("Registered WorldGuard event listeners");
         }
 
