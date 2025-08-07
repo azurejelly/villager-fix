@@ -2,4 +2,4 @@ name: VillagerFix
 version: '1.0.0'
 main: dev.azuuure.villagerfix.VillagerFix
 api-version: '1.13'
-depend: [ WorldGuard, VillagerInABukkit, GriefPrevention ]
+softdepend: [ WorldGuard, VillagerInABukkit, GriefPrevention ]

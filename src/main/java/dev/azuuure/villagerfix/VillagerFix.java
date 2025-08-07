@@ -1,7 +1,7 @@
 package dev.azuuure.villagerfix;
 
-import dev.azuuure.villagerfix.listeners.GriefPreventionPreVillagerPickupListener;
-import dev.azuuure.villagerfix.listeners.WorldGuardPreVillagerPickupListener;
+import dev.azuuure.villagerfix.listeners.GriefPreventionListener;
+import dev.azuuure.villagerfix.listeners.WorldGuardListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,8 +20,15 @@ public final class VillagerFix extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        pluginManager.registerEvents(new GriefPreventionPreVillagerPickupListener(logger), this);
-        pluginManager.registerEvents(new WorldGuardPreVillagerPickupListener(logger), this);
+        if (pluginManager.isPluginEnabled("GriefPrevention")) {
+            logger.info("Registered GriefPrevention event listeners");
+            pluginManager.registerEvents(new GriefPreventionListener(logger), this);
+        }
+
+        if (pluginManager.isPluginEnabled("WorldGuard")) {
+            logger.info("Registered WorldGuard event listeners");
+            pluginManager.registerEvents(new WorldGuardListener(logger), this);
+        }
 
         logger.info("VillagerFix version " + getDescription().getVersion() + " has been enabled.");
         logger.info("Made by https://github.com/azurejelly");
