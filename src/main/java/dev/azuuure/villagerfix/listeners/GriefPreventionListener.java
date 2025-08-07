@@ -34,7 +34,7 @@ public class GriefPreventionListener implements Listener {
         if (plugin.allowBuild(player, loc) != null || plugin.allowBuild(player, villager) != null) {
             event.setCancelled(true);
             logger.info("Player " + player.getName() + " attempted to pick up a villager" +
-                    "inside a GriefPrevention protected zone");
+                    " inside a GriefPrevention protected zone");
         }
     }
 
@@ -53,7 +53,7 @@ public class GriefPreventionListener implements Listener {
         if (plugin.allowBuild(player, loc) != null || plugin.allowBuild(player, villager) != null) {
             event.setCancelled(true);
             logger.info("Player " + player.getName() + " attempted to place a villager" +
-                    "inside a GriefPrevention protected zone");
+                    " inside a GriefPrevention protected zone");
         }
     }
 }
